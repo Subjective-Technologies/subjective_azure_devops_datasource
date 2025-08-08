@@ -71,17 +71,16 @@ class SubjectiveAzureDevOpsDataSource(SubjectiveDataSource):
 
     # ------------------------------------------------------------------
     def get_icon(self):
-        """Return the SVG code for the Azure DevOps icon."""
-        return """
-<svg fill="#000000" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" data-darkreader-inline-fill="" style="--darkreader-inline-fill: #000000;">
-  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-  <g id="SVGRepo_iconCarrier">
-    <title>Azure DevOps icon</title>
-    <path d="M0 8.899l2.247-2.966 8.405-3.416V.045l7.37 5.393L2.966 8.36v8.224L0 15.73zm24-4.45v14.652L18.247 24l-9.303-3.056V24l-5.978-7.416 15.057 1.798V5.438z"></path>
-  </g>
-</svg>
-        """
+        """Return SVG icon content, preferring a local icon.svg in the plugin folder."""
+        import os
+        icon_path = os.path.join(os.path.dirname(__file__), 'icon.svg')
+        try:
+            if os.path.exists(icon_path):
+                with open(icon_path, 'r', encoding='utf-8') as f:
+                    return f.read()
+        except Exception:
+            pass
+        return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#0078D7"/><path fill="#fff" d="M6 12l6-6 6 6-6 6z"/></svg>'
 
     def get_connection_data(self):
         """
