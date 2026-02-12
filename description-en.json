@@ -1,4 +1,5 @@
 {
+  "description": "Enumerates and clones Azure DevOps repositories for a configured organization/project into local storage for indexing workflows.",
   "domainCategory": "Software Development",
   "subjectiveTechnologyElement": "DataSources",
   "publisher": "BrainBoost Ltd.",
@@ -9,7 +10,7 @@
     {
       "type": "splitList",
       "title": "Azure Dev Ops",
-      "text": "A Subjective data source for azure dev ops.",
+      "text": "Enumerates and clones Azure DevOps repositories for a configured organization/project into local storage for indexing workflows.",
       "image": {
         "src": "/subjective_azure_devops_datasource/icon.svg",
         "alt": "Azure Dev Ops icon"
